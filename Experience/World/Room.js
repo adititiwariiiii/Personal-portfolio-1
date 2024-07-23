@@ -13,10 +13,8 @@ export default class Room {
         this.actualRoom = this.room.scene;
 
         // Initialize rotation values and quaternions
-        this.rotationX = 0;
-        this.rotationY = 0;
-        this.currentQuaternion = new THREE.Quaternion();
-        this.targetQuaternion = new THREE.Quaternion();
+        this.currentRotationY = 0;
+        this.targetRotationY = 0;
 
         this.sensitivity = 0.005; // Sensitivity for mouse movement
 
@@ -65,26 +63,31 @@ export default class Room {
         window.addEventListener("mousemove", (e) => {
             // Calculate normalized mouse positions
             const mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-            const mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
 
-            // Calculate target rotation in radians
-            this.rotationX = mouseX * Math.PI * 2; // Full 360 degrees
-            this.rotationY = mouseY * Math.PI * 2; // Full 360 degrees
+            // Calculate target rotation in radians for Y-axis
+            this.targetRotationY = mouseX * Math.PI * 2; // Full 360 degrees
 
-            // Create a new quaternion for the target rotation
-            const targetEuler = new THREE.Euler(this.rotationY, this.rotationX, 0, 'YXZ');
-            this.targetQuaternion.setFromEuler(targetEuler);
+            // Debugging: log values to check calculations
+            console.log('MouseX:', mouseX);
+            console.log('Target RotationY:', this.targetRotationY);
         });
     }
 
     resize() {}
 
     update() {
-        // Smoothly interpolate between current and target quaternion
-        this.currentQuaternion.slerp(this.targetQuaternion, 0.1); // Adjust the interpolation factor for smoothness
+        // Smoothly interpolate between current and target rotation
+        this.currentRotationY = GSAP.utils.interpolate(
+            this.currentRotationY,
+            this.targetRotationY,
+            0.1 // Adjust the interpolation factor for smoothness
+        );
 
-        // Apply the quaternion to the actualRoom
-        this.actualRoom.quaternion.copy(this.currentQuaternion);
+        // Apply the rotation to the actualRoom
+        this.actualRoom.rotation.y = this.currentRotationY;
+
+        // Debugging: log rotation values
+        console.log('Current RotationY:', this.currentRotationY);
 
         // Update the animation mixer
         this.mixer.update(this.time.delta * 0.0009);
