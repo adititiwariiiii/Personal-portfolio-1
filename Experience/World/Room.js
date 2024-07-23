@@ -37,8 +37,8 @@ export default class Room{
             }
         });
 
-        const width= 0;
-        const height= 0;
+        const width= 1;
+        const height= 1;
         const intensity= 0.5;
         const rectLight = new THREE.RectAreaLight(
             0xffffff,
@@ -56,29 +56,44 @@ export default class Room{
         this.actualRoom.scale.set(0.5 , 0.5 , 0.5);
     }
 
-    setAnimation(){
+    setAnimation() {
+        // Initialize the AnimationMixer for this.actualRoom
         this.mixer = new THREE.AnimationMixer(this.actualRoom);
     }
-
-    onMouseMove(){
-        window.addEventListener("mousemove", (e) =>{
-            this.rotation =
-           ( ( e.clientX - window.innerWidth / 2) * 2)/ window.innerWidth;
-            this.lerp.target = this.rotation * 0.4;
+    
+    onMouseMove() {
+        // Variables to store rotation values
+        let mouseX = 0;
+        let mouseY = 0;
+        let targetX = 0;
+        let targetY = 0;
+    
+        // Add an event listener for mouse movement
+        window.addEventListener("mousemove", (e) => {
+            // Calculate rotation for X and Y axis
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1; // Normalized X [-1, 1]
+            mouseY = -(e.clientY / window.innerHeight) * 2 + 1; // Normalized Y [-1, 1]
+    
+            // Update target rotation values
+            targetX = mouseX * Math.PI;  // X-axis rotation in radians
+            targetY = mouseY * Math.PI;  // Y-axis rotation in radians
+    
+            // Set the targets for lerp (linear interpolation) to smooth rotation
+            this.lerpX.target = targetX * 0.4;
+            this.lerpY.target = targetY * 0.4;
         });
     }
-
-    resize(){}
-
-    update(){
-        this.lerp.current = GSAP.utils.interpolate(
-            this.lerp.current,
-            this.lerp.target,
-            this.lerp.ease
-        );
-
-        this.actualRoom.rotation.y = this.lerp.current;
-
-        this.mixer.update(this.time.delta * 0.0009);
+    
+    // Update method to apply the rotations
+    update() {
+        // Assuming `lerpX` and `lerpY` are instances of a lerping utility
+        // Apply rotation based on interpolated values
+        this.rotationX = THREE.MathUtils.lerp(this.rotationX, this.lerpX.target, 0.1);
+        this.rotationY = THREE.MathUtils.lerp(this.rotationY, this.lerpY.target, 0.1);
+    
+        // Apply the rotation to your object
+        this.actualRoom.rotation.x = this.rotationY;
+        this.actualRoom.rotation.y = this.rotationX;
     }
+
 }
