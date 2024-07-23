@@ -141,7 +141,7 @@ svg{
 .section{
   position: relative;
   width: 50%;
-  padding: 100px 4%;
+  padding: 500px 4%;
   margin: 0;
   background-color: var(--color-background);
 }
@@ -189,12 +189,12 @@ svg{
   padding: 20% 5%;
   border-bottom: 2px solid var(--primary-dark);
   padding-bottom: 400px;
+  width: 400px;
 }
 
 .section-detail-wrapper{
   position: center;
   padding: 20% 5%;
-  width: 250px;
 }
 
 .links{
