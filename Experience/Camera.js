@@ -16,14 +16,14 @@ export default class Camera{
 
     createPerspectiveCamera(){
         this.perspectiveCamera = new THREE.PerspectiveCamera(
-            35,
+            60,
             this.sizes.aspect,
             0.1, 
-            1000
+            3500
             );
             this.scene.add(this.perspectiveCamera);
-            this.perspectiveCamera.position.x = 100;
-            this.perspectiveCamera.position.y = 20;
+            this.perspectiveCamera.position.x = 29;
+            this.perspectiveCamera.position.y = 14;
             this.perspectiveCamera.position.z = 12;
     }
 
