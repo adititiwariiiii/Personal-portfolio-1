@@ -39,10 +39,10 @@ export default class Room{
 
         const width= 1;
         const height= 1;
-        const intensity= 1;
+        const intensity= 0.5;
         const rectLight = new THREE.RectAreaLight(
             0xffffff,
-            3,
+            intensity,
             width,
             height
         );
