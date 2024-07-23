@@ -1,47 +1,29 @@
 import * as THREE from "three";
 import Camera from "./Camera.js";
+import Floor from "./Floor.js";
 
 export default class Experience {
     constructor() {
-        this.sizes = {
-            width: window.innerWidth,
-            height: window.innerHeight,
-            aspect: window.innerWidth / window.innerHeight,
-            frustrum: 75
-        };
-
-        this.canvas = document.querySelector('canvas.webgl'); // Ensure this matches your actual canvas selector
-
         this.scene = new THREE.Scene();
-
+        this.canvas = document.querySelector('canvas.webgl');
+        this.sizes = { width: window.innerWidth, height: window.innerHeight, aspect: window.innerWidth / window.innerHeight };
+        this.time = { delta: 0 }; // Placeholder for time management
         this.camera = new Camera();
+        this.floor = new Floor();
 
-        this.renderer = new THREE.WebGLRenderer({
-            canvas: this.canvas,
-            antialias: true
-        });
-        this.renderer.setSize(this.sizes.width, this.sizes.height);
-        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-        this.animate();
-
-        window.addEventListener('resize', () => {
-            this.sizes.width = window.innerWidth;
-            this.sizes.height = window.innerHeight;
-            this.sizes.aspect = window.innerWidth / window.innerHeight;
-
-            this.camera.resize();
-            this.renderer.setSize(this.sizes.width, this.sizes.height);
-            this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        });
+        this.update();
+        this.resize();
     }
 
-    animate() {
-        requestAnimationFrame(() => this.animate());
-
+    update() {
+        this.floor.update();
         this.camera.update();
-        this.renderer.render(this.scene, this.camera.perspectiveCamera);
+
+        requestAnimationFrame(() => this.update());
+    }
+
+    resize() {
+        // Update sizes if window is resized
+        this.camera.resize();
     }
 }
-
-const experience = new Experience();
