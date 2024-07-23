@@ -12,11 +12,12 @@ export default class Room {
         this.room = this.resources.items.room;
         this.actualRoom = this.room.scene;
 
-        // Initialize rotation values and quaternions
+        // Initialize rotation values
         this.currentRotationY = 0;
         this.targetRotationY = 0;
 
         this.sensitivity = 0.005; // Sensitivity for mouse movement
+        this.rotationSpeed = 0.1; // Speed of rotation smoothing
 
         this.setModel();
         this.setAnimation();
@@ -61,10 +62,10 @@ export default class Room {
 
     onMouseMove() {
         window.addEventListener("mousemove", (e) => {
-            // Calculate normalized mouse positions
+            // Calculate normalized mouse position
             const mouseX = (e.clientX / window.innerWidth) * 2 - 1;
 
-            // Calculate target rotation in radians for Y-axis
+            // Calculate target rotation in radians
             this.targetRotationY = mouseX * Math.PI * 2; // Full 360 degrees
 
             // Debugging: log values to check calculations
@@ -77,11 +78,7 @@ export default class Room {
 
     update() {
         // Smoothly interpolate between current and target rotation
-        this.currentRotationY = GSAP.utils.interpolate(
-            this.currentRotationY,
-            this.targetRotationY,
-            0.1 // Adjust the interpolation factor for smoothness
-        );
+        this.currentRotationY += (this.targetRotationY - this.currentRotationY) * this.rotationSpeed;
 
         // Apply the rotation to the actualRoom
         this.actualRoom.rotation.y = this.currentRotationY;
