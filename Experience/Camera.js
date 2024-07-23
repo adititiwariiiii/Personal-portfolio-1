@@ -24,7 +24,7 @@ export default class Camera{
             this.scene.add(this.perspectiveCamera);
             this.perspectiveCamera.position.x = 100;
             this.perspectiveCamera.position.y = 14;
-            this.perspectiveCamera.position.z = 100;
+            this.perspectiveCamera.position.z = 12;
     }
 
     createOrthographicCamera(){
