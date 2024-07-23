@@ -20,11 +20,11 @@ svg{
 
 :root{
   --text-black:#1e1d1f ;
-  --color-light: #a15bc2;
+  --color-light: #d499ef;
   --color-green-light: #9defd2;
   --color-blue-light:  #9ca4e1;
   --color-text-light: #dfd1e6;
-  --color-background-light: #c19af3;
+  --color-background-light: rgb(191, 153, 241);
 
 
 
