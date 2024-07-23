@@ -24,7 +24,7 @@ svg{
   --color-green-light: #acf5db;
   --color-blue-light: #9da7ea;
   --color-text-light: #ead3f5;
-  --color-background-light: #a289ae;
+  --color-background-light: #b39ebc;
 
 
 
@@ -149,13 +149,13 @@ svg{
 .left{
   margin-right: auto;
   border-top-right-radius: 700px 700px;
-  border-bottom-right-radius: 0px 0px;
+  border-bottom-right-radius: 700px 700px;
 }
 
 .right{
   margin-left: auto;
   border-top-left-radius: 700px 700px;
-  border-bottom-left-radius: 0px 0px;
+  border-bottom-left-radius: 700px 700px;
 }
 
                                    /*progress-bar*/
