@@ -19,7 +19,7 @@ export default class Camera{
             35,
             this.sizes.aspect,
             0.1, 
-            100
+            10000
             );
             this.scene.add(this.perspectiveCamera);
             this.perspectiveCamera.position.x = 29;
@@ -33,8 +33,8 @@ export default class Camera{
             (this.sizes.aspect * this.sizes.frustrum)/2,
             this.sizes.frustrum / 2 , 
             -this.sizes.frustrum /2,
-            -60,
-            60
+            -50,
+            50
             );
 
             this.orthographicCamera.position.y = 3.5;
