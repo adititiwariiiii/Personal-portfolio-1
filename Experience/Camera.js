@@ -33,8 +33,8 @@ export default class Camera{
             (this.sizes.aspect * this.sizes.frustrum)/2,
             this.sizes.frustrum / 2 , 
             -this.sizes.frustrum /2,
-            -100,
-            100
+            -60,
+            60
             );
 
             this.orthographicCamera.position.y = 3.5;
