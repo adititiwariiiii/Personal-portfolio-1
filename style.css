@@ -20,7 +20,7 @@ svg{
 
 :root{
   --text-black:#1e1d1f ;
-  --color-light: #d499ef;
+  --color-light: #d07bf7;
   --color-green-light: #9defd2;
   --color-blue-light:  #9ca4e1;
   --color-text-light: #dfd1e6;
@@ -132,7 +132,7 @@ svg{
 .slide{
   transform: translateX(24px);
 }
-/* chnged 100 t0 80*/
+
 .section-margin{
   height: 100px;
   width: 100%;
