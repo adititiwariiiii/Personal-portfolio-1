@@ -16,7 +16,7 @@ export default class Camera{
 
     createPerspectiveCamera(){
         this.perspectiveCamera = new THREE.PerspectiveCamera(
-            35,
+            55,
             this.sizes.aspect,
             0.1, 
             1000
