@@ -37,8 +37,8 @@ export default class Room{
             }
         });
 
-        const width= 1;
-        const height= 1;
+        const width= 0;
+        const height= 0;
         const intensity= 0.5;
         const rectLight = new THREE.RectAreaLight(
             0xffffff,
