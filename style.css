@@ -20,7 +20,7 @@ svg{
 
 :root{
   --text-black:#1e1d1f ;
-  --color-light: #a289ae;
+  --color-light: #aa7bbf;
   --color-green-light: #acf5db;
   --color-blue-light: #9da7ea;
   --color-text-light: #ead3f5;
@@ -194,7 +194,7 @@ svg{
 .section-detail-wrapper{
   position: center;
   padding: 20% 5%;
-
+  width: 250px;
 }
 
 .links{
