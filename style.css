@@ -24,14 +24,14 @@ svg{
   --color-green-light: #acf5db;
   --color-blue-light: #919eee;
   --color-text-light: #ead3f5;
-  --color-background-light: #b39ebc;
+  --color-background-light: #c09ccf;
 
 
 
   --color-text-dark:  #b7ecef;
   --color-green-dark:  #b7ecef;
   --color-blue-dark: #9da7ea;
-  --color-background-dark: #5a75b8;
+  --color-background-dark: #5f79bd;
 
 }
                                               /* theme*/
@@ -134,14 +134,14 @@ svg{
 }
 /* chnged 100 t0 80*/
 .section-margin{
-  height: 80px;
-  width: 80%;
+  height: 100px;
+  width: 100%;
 }
 
 .section{
   position: relative;
   width: 50%;
-  padding: 500px 4%;
+  padding: 250px 4%;
   margin: 0;
   background-color: var(--color-background);
 }
