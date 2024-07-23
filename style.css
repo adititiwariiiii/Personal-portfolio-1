@@ -188,12 +188,12 @@ svg{
   position:relative;
   padding: 20% 5%;
   border-bottom: 2px solid var(--primary-dark);
-  padding-bottom: 100px;
+  padding-bottom: 400px;
 }
 
 .section-detail-wrapper{
   position: center;
-  padding: 200px;
+  padding: 20% 5%;
 
 }
 
