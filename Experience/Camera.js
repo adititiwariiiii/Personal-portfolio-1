@@ -1,81 +1,47 @@
 import * as THREE from "three";
-import Experience from "./Experience.js";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import Camera from "./Camera.js";
 
-export default class Camera {
+export default class Experience {
     constructor() {
-        this.experience = new Experience();
-        this.sizes = this.experience.sizes;
-        this.scene = this.experience.scene;
-        this.canvas = this.experience.canvas;
+        this.sizes = {
+            width: window.innerWidth,
+            height: window.innerHeight,
+            aspect: window.innerWidth / window.innerHeight,
+            frustrum: 75
+        };
 
-        this.createPerspectiveCamera();
-        this.createOrthographicCamera();
-        this.setOrbitControls();
+        this.canvas = document.querySelector('canvas.webgl'); // Ensure this matches your actual canvas selector
+
+        this.scene = new THREE.Scene();
+
+        this.camera = new Camera();
+
+        this.renderer = new THREE.WebGLRenderer({
+            canvas: this.canvas,
+            antialias: true
+        });
+        this.renderer.setSize(this.sizes.width, this.sizes.height);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        this.animate();
+
+        window.addEventListener('resize', () => {
+            this.sizes.width = window.innerWidth;
+            this.sizes.height = window.innerHeight;
+            this.sizes.aspect = window.innerWidth / window.innerHeight;
+
+            this.camera.resize();
+            this.renderer.setSize(this.sizes.width, this.sizes.height);
+            this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        });
     }
 
-    createPerspectiveCamera() {
-        this.perspectiveCamera = new THREE.PerspectiveCamera(
-            35,
-            this.sizes.aspect,
-            0.1,
-            1000
-        );
-        this.scene.add(this.perspectiveCamera);
-        this.perspectiveCamera.position.x = 29;
-        this.perspectiveCamera.position.y = 14;
-        this.perspectiveCamera.position.z = 12;
-    }
+    animate() {
+        requestAnimationFrame(() => this.animate());
 
-    createOrthographicCamera() {
-        this.orthographicCamera = new THREE.OrthographicCamera(
-            (-this.sizes.aspect * this.sizes.frustrum) / 2,
-            (this.sizes.aspect * this.sizes.frustrum) / 2,
-            this.sizes.frustrum / 2,
-            -this.sizes.frustrum / 2,
-            -50,
-            50
-        );
-
-        this.orthographicCamera.position.y = 3.5;
-        this.orthographicCamera.position.z = 5;
-        this.orthographicCamera.rotation.x = -Math.PI / 6;
-
-        this.scene.add(this.orthographicCamera);
-
-        const size = 20;
-        const divisions = 20;
-
-        // Uncomment these lines if you need helpers for debugging
-        // const gridHelper = new THREE.GridHelper(size, divisions);
-        // this.scene.add(gridHelper);
-        // const axesHelper = new THREE.AxesHelper(10);
-        // this.scene.add(axesHelper);
-    }
-
-    setOrbitControls() {
-        this.controls = new OrbitControls(this.perspectiveCamera, this.canvas);
-        this.controls.enableDamping = true; // Enable damping (inertia)
-        this.controls.dampingFactor = 0.25; // Adjust damping factor
-        this.controls.enableZoom = true; // Allow zooming
-        this.controls.enablePan = true; // Allow panning
-        this.controls.minDistance = 5; // Set minimum zoom distance
-        this.controls.maxDistance = 500; // Set maximum zoom distance
-        this.controls.maxPolarAngle = Math.PI; // Limit vertical rotation to avoid flipping
-    }
-
-    resize() {
-        this.perspectiveCamera.aspect = this.sizes.aspect;
-        this.perspectiveCamera.updateProjectionMatrix();
-
-        this.orthographicCamera.left = (-this.sizes.aspect * this.sizes.frustrum) / 2;
-        this.orthographicCamera.right = (this.sizes.aspect * this.sizes.frustrum) / 2;
-        this.orthographicCamera.top = this.sizes.frustrum / 2;
-        this.orthographicCamera.bottom = -this.sizes.frustrum / 2;
-        this.orthographicCamera.updateProjectionMatrix();
-    }
-
-    update() {
-        this.controls.update();
+        this.camera.update();
+        this.renderer.render(this.scene, this.camera.perspectiveCamera);
     }
 }
+
+const experience = new Experience();
