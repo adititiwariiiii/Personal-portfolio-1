@@ -1,29 +1,48 @@
 import * as THREE from "three";
+
+import Sizes from "./Utils/Sizes.js";
+import Time from "./Utils/Time.js";
+import Resources from "./Utils/Resources.js";
+import assets from "./Utils/assets.js";
+
 import Camera from "./Camera.js";
-import Floor from "./Floor.js";
+import Theme from "./Theme.js";
+import Renderer from "./Renderer.js";
 
-export default class Experience {
-    constructor() {
+import World from "./World/World.js";
+
+export default class Experience{
+    static instance;
+    constructor(canvas){
+        if(Experience.instance){
+            return Experience.instance;
+        }
+        Experience.instance = this;
+        this.canvas = canvas;
         this.scene = new THREE.Scene();
-        this.canvas = document.querySelector('canvas.webgl');
-        this.sizes = { width: window.innerWidth, height: window.innerHeight, aspect: window.innerWidth / window.innerHeight };
-        this.time = { delta: 0 }; // Placeholder for time management
+        this.time = new Time();
+        this.sizes = new Sizes();
         this.camera = new Camera();
-        this.floor = new Floor();
+        this.renderer = new Renderer();
+        this.resources = new Resources(assets);
+        this.theme = new Theme();
+        this.world = new World();
 
-        this.update();
-        this.resize();
+        this.sizes.on("resize", () => { 
+            this.resize();
+        });
+        this.time.on("update", () => { 
+            this.update();
+        });
     }
-
-    update() {
-        this.floor.update();
-        this.camera.update();
-
-        requestAnimationFrame(() => this.update());
-    }
-
     resize() {
-        // Update sizes if window is resized
         this.camera.resize();
+        this.world.resize();
+        this.renderer.resize();
+    }
+    update() {
+        this.camera.update();
+        this.world.update();
+        this.renderer.update();
     }
 }
