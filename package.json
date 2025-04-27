@@ -1,5 +1,5 @@
 {
-  "homepage":"http://adititiwarii.github.io/Personal-portfolio",
+  "homepage": "http://adititiwarii.github.io/Personal-portfolio",
   "name": "myportfolio",
   "private": true,
   "version": "0.0.0",
@@ -16,9 +16,22 @@
     "gh-pages": "^5.0.0",
     "gsap": "^3.11.4",
     "lil-gui": "^0.17.0",
-    "vite": "^4.0.0"
+    "vite": "^4.5.13"
   },
   "dependencies": {
+    "express": "^5.1.0",
     "three": "^0.148.0"
-  }
+  },
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adititiwariiiii/Personal-portfolio-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adititiwariiiii/Personal-portfolio-1/issues"
+  },
+  "description": ""
 }

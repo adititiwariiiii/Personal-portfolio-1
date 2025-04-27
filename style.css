@@ -20,18 +20,18 @@ svg{
 
 :root{
   --text-black:#1e1d1f ;
-  --color-light: #c692df;
-  --color-green-light: #9defd2;
+  --color-light: #c5e0f7;
+  --color-green-light: #beeff8;
   --color-blue-light:  #7db7ca;
-  --color-text-light: #dfd1e6;
-  --color-background-light: rgb(206, 154, 224);
+  --color-text-light: #92cdf5;
+  --color-background-light: rgb(140, 190, 247);
 
 
 
-  --color-text-dark:  #b7ecef;
-  --color-green-dark:  #b7ecef;
-  --color-blue-dark: #9da7ea;
-  --color-background-dark: #5f79bd;
+  --color-text-dark:  #93d5fc;;
+  --color-green-dark:  #acc9f5;
+  --color-blue-dark: #7781c0;
+  --color-background-dark: #50baf7;
 
 }
                                               /* theme*/
