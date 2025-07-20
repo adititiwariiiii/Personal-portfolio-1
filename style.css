@@ -182,18 +182,21 @@ svg{
                                    /*section*/
 
 
-.section-intro-wrapper{
-  position:relative;
-  padding: 20% 5%;
+.section-intro-wrapper {
+  position: relative;
+  max-width: 960px;        
+  margin: 0 auto;          
+  padding: 8% 5%;          
   border-bottom: 2px solid var(--primary-dark);
-  padding-bottom: 350px;
+  padding-bottom: 180px;  
 }
 
-.section-detail-wrapper{
-  position: center;
-  padding: 20% 5%;
-
-}
+.section-detail-wrapper {
+  position: relative;
+  max-width: 960px;        
+  margin: 0 auto;         
+  padding: 8% 5%;    
+}      
 
 .links{
   background-color: var(--color-text);
