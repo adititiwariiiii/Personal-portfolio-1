@@ -19,11 +19,11 @@ svg{
 }
 
 :root{
-  --color-light: #eee1f3;
+   --color-light: #a289ae;
   --color-green-light: #acf5db;
   --color-blue-light: #9da7ea;
   --color-text-light: #ead3f5;
-  --color-background-light: #a289ae;
+  --color-background-light: #e4d2ec;
 
 
   --color-text-dark:  #b7ecef;
