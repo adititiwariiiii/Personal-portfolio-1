@@ -147,13 +147,13 @@ svg{
 .left{
   margin-right: auto;
   border-top-right-radius: 700px 700px;
-  border-bottom-right-radius: 0px 0px;
+  border-bottom-right-radius:700px 700px;
 }
 
 .right{
   margin-left: auto;
   border-top-left-radius: 700px 700px;
-  border-bottom-left-radius: 0px 0px;
+  border-bottom-left-radius: 700px 700px;
 }
 
                                    /*progress-bar*/
@@ -285,7 +285,7 @@ svg{
 
 .hero-wrapper{
   position: relative;
-  height: 50%;
+  height: 100%;
   width: calc(100% - 160px);
   margin: 0 auto;
   max-width: 1100px;
