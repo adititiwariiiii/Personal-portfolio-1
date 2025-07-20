@@ -20,18 +20,18 @@ svg{
 
 :root{
   --text-black:#1e1d1f ;
-  --color-light: #c5e0f7;
-  --color-green-light: #beeff8;
-  --color-blue-light:  #7db7ca;
-  --color-text-light: #92cdf5;
-  --color-background-light: rgb(140, 190, 247);
+  --color-light: #a289ae;
+  --color-green-light: #acf5db;
+  --color-blue-light: #9da7ea;
+  --color-text-light: #ead3f5;
+  --color-background-light: #a289ae;
 
 
 
-  --color-text-dark:  #93d5fc;;
-  --color-green-dark:  #acc9f5;
-  --color-blue-dark: #7781c0;
-  --color-background-dark: #50baf7;
+  --color-text-dark:  #b7ecef;
+  --color-green-dark:  #b7ecef;
+  --color-blue-dark: #9da7ea;
+  --color-background-dark: #5a75b8;
 
 }
                                               /* theme*/
@@ -141,7 +141,7 @@ svg{
 .section{
   position: relative;
   width: 50%;
-  padding: 250px 4%;
+  padding: 1000px 4%;
   margin: 0;
   background-color: var(--color-background);
 }
@@ -149,13 +149,13 @@ svg{
 .left{
   margin-right: auto;
   border-top-right-radius: 700px 700px;
-  border-bottom-right-radius: 700px 700px;
+  border-bottom-right-radius: 0px 0px;
 }
 
 .right{
   margin-left: auto;
   border-top-left-radius: 700px 700px;
-  border-bottom-left-radius: 700px 700px;
+  border-bottom-left-radius: 0px 0px;
 }
 
                                    /*progress-bar*/
@@ -194,6 +194,7 @@ svg{
 .section-detail-wrapper{
   position: center;
   padding: 20% 5%;
+
 }
 
 .links{
