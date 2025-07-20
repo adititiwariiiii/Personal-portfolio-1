@@ -184,7 +184,7 @@ svg{
 
 .section-intro-wrapper {
   position: relative;
-  max-width: 960px;        
+  max-width: 400px;        
   margin: 0 auto;          
   padding: 8% 5%;          
   border-bottom: 2px solid var(--primary-dark);
@@ -193,7 +193,7 @@ svg{
 
 .section-detail-wrapper {
   position: relative;
-  max-width: 960px;        
+  max-width: 400px;        
   margin: 0 auto;         
   padding: 8% 5%;    
 }      
