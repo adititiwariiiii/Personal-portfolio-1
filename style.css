@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');*{
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -6,7 +6,7 @@
 }
 
 html, body{
-  font-family: "Rubik Mono One", monospace;
+   font-family: "Space Grotesk", sans-serif;
   color: var(--color-text);
 }
 
@@ -19,13 +19,11 @@ svg{
 }
 
 :root{
-  --color-light: #a289ae;
+  --color-light: #eee1f3;
   --color-green-light: #acf5db;
   --color-blue-light: #9da7ea;
   --color-text-light: #ead3f5;
   --color-background-light: #a289ae;
-   --color-background-l: #efddf7;
-
 
 
   --color-text-dark:  #b7ecef;
@@ -37,7 +35,7 @@ svg{
                                               /* theme*/
 .light-theme{
   --color-text: var(--color-text-light);
-  --color-background: var(--color-background-l);
+  --color-background: var(--color-background-light);
   --color-light: var(--color-light);
   --color-green: var(--color-green-light);
   --color-blue: var(--color-blue-light);
